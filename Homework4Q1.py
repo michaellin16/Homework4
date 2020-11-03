@@ -5,12 +5,12 @@ import cProfile
 import random
 import timeit
 
-from pip._vendor.msgpack.fallback import xrange
 
 def preMerge():
     mergeArr = random.sample(range(0, 1000000), 65)
     n = len(mergeArr)
     mergeSort(mergeArr, 0, n - 1)
+
 
 def merge(arr, l, m, r):
     n1 = m - l + 1
@@ -84,10 +84,6 @@ def insertionSort():
         arr[j + 1] = key
 
 
-def f():
-    print("H")
-
-
 # Insertion Sort
 setUp = "from __main__ import insertionSort"
 statement = "insertionSort()"
@@ -97,4 +93,3 @@ print("Insertion Sort Time:", timeit.timeit(setup=setUp, stmt=statement, number=
 setUp = "from __main__ import preMerge"
 statement = "preMerge()"
 print("Merge Time:", timeit.timeit(setup=setUp, stmt=statement, number=10000))
-
